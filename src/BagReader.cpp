@@ -152,8 +152,8 @@ struct BagReader {
       ++message;
     }
 
-    std::cout << "End of bag." << std::endl;
-    return ecto::QUIT;
+    std::cout << "End of bag, using new random value." << std::endl;
+    return output_random(out);
   }
 
   int output_sequential(const tendrils &out) {
@@ -179,7 +179,6 @@ struct BagReader {
   }
 
   int process(const tendrils &in, const tendrils &out) {
-    std::cout << "Random access: " << *random_access_ << '\n';
     if (*random_access_) {
       return output_random(out);
     } else {
